@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1055545963921",
+    "project_id": "physicalfitness-eb9ae",
+    "storage_bucket": "physicalfitness-eb9ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1055545963921:android:8d218d297c844acaa19630",
+        "android_client_info": {
+          "package_name": "com.example.physical_fitness_planner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1055545963921-qvv4t9o5rc3fks6ubcsllpk6dag8lbi2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCvoH-TTbo-tzdhRKhCrdlbUyDgcpqjnbg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1055545963921-qvv4t9o5rc3fks6ubcsllpk6dag8lbi2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
