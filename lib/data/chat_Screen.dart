@@ -62,16 +62,17 @@ class _ChatScreenState extends State<ChatScreen> {
                   .orderBy('timestamp', descending: true)
                   .snapshots(),
               builder: (context, snapshot) {
-                
                 if (snapshot.hasData) {
                   final messages = snapshot.data!.docs;
                   return ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
                     reverse: true,
-                    itemCount: messages.length,
+                    itemCount: messages?.length,
                     itemBuilder: (context, index) {
-                      final message = messages[index];
-                      final messageText = message['message'];
-                      final isMe = message['senderId'] == _currentUser?.uid;
+                      final message = messages?[index];
+                      final messageText = message?['message'];
+                      final isMe = message?['senderId'] == _currentUser?.uid;
 
                       return ListTile(
                         title: Text(messageText),
@@ -80,11 +81,13 @@ class _ChatScreenState extends State<ChatScreen> {
                       );
                     },
                   );
-                } else {
-                  return const Center(
+                }
+                if (snapshot.hasError) {
+                  return Center(
                     child: CircularProgressIndicator(),
                   );
                 }
+                return Text('');
               },
             ),
           ),

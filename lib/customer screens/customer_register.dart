@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:physical_fitness_planner/customer%20screens/customer_login.dart';
 
 import '../constants.dart';
 
@@ -75,7 +76,9 @@ class _CustomerRegistrationScreenState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Customer Registration')),
+      appBar: AppBar(
+        title: const Text('Customer Registration'),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -139,7 +142,10 @@ class _CustomerRegistrationScreenState
                 ),
                 const SizedBox(height: 10),
                 TextButton(
-                  onPressed: widget.onTap,
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => const customerLoginScreen()));
+                  },
                   child: const Text('Already have an account? Log in here.'),
                 ),
               ],

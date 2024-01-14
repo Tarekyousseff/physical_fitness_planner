@@ -58,6 +58,7 @@ class _AdminAuthScreenState extends State<AdminAuthScreen> {
           });
 
           // Navigate to the coach's home screen
+          // ignore: use_build_context_synchronously
           Navigator.pushReplacementNamed(context, '/coach_home');
         }
       } on FirebaseAuthException catch (e) {

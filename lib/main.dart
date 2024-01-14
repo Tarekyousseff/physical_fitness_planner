@@ -1,6 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:physical_fitness_planner/coach%20screens/coach_auth.dart';
 import 'package:physical_fitness_planner/coach%20screens/coach_home_Screen.dart';
 import 'package:physical_fitness_planner/coach%20screens/coach_list_page.dart';
@@ -13,6 +14,7 @@ import 'package:physical_fitness_planner/customer%20screens/customer_home%20_Scr
 import 'package:physical_fitness_planner/customer%20screens/customer_register.dart';
 import 'package:physical_fitness_planner/data/request_page.dart';
 import 'package:physical_fitness_planner/screens/WelcomeScreen.dart';
+import 'package:physical_fitness_planner/screens/onboarding_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,8 +29,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+            centerTitle: true,
+            color: HexColor('FFE5B4'),
+            titleTextStyle: TextStyle(
+                color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500)),
+        textTheme: TextTheme(labelMedium: TextStyle(color: Colors.red)),
         colorSchemeSeed: Colors.red,
-        scaffoldBackgroundColor: Colors.amber,
+        scaffoldBackgroundColor: HexColor('FFE5B4'),
       ),
       title: "my app",
       debugShowCheckedModeBanner: false,
@@ -58,7 +66,7 @@ class MyApp extends StatelessWidget {
             // ),
           ],
         ),
-        nextScreen: const LandingScreen(),
+        nextScreen: const OnBoardingScreen(),
       ),
       routes: {
         '/customer_register': (context) => const CustomerRegistrationScreen(),

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:physical_fitness_planner/constants.dart';
+import 'package:physical_fitness_planner/customer%20screens/customer_register.dart';
 
 class customerLoginScreen extends StatefulWidget {
   final void Function()? onTap;
@@ -56,37 +57,35 @@ class _CustomerLoginScreenState extends State<customerLoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Customer Login')),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextField(
-                controller: _emailController,
-                keyboardType: TextInputType.emailAddress,
-                decoration: const InputDecoration(labelText: 'Email'),
-              ),
-              TextField(
-                controller: _passwordController,
-                obscureText: true,
-                decoration: const InputDecoration(labelText: 'Password'),
-              ),
-              const SizedBox(height: 16.0),
-              ElevatedButton(
-                onPressed: _signInCustomer,
-                child: const Text('Sign In'),
-              ),
-              const SizedBox(height: 10),
-              TextButton(
-                onPressed: widget.onTap,
-                child: const Text('Don\'t have an account? Sign up here.'),
-              ),
-            ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          TextField(
+            controller: _emailController,
+            keyboardType: TextInputType.emailAddress,
+            decoration: const InputDecoration(labelText: 'Email'),
           ),
-        ),
+          TextField(
+            controller: _passwordController,
+            obscureText: true,
+            decoration: const InputDecoration(labelText: 'Password'),
+          ),
+          const SizedBox(height: 16.0),
+          ElevatedButton(
+            onPressed: _signInCustomer,
+            child: const Text('Sign In'),
+          ),
+          const SizedBox(height: 10),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: ((context) => CustomerRegistrationScreen())));
+            },
+            child: const Text('Don\'t have an account? Sign up here.'),
+          ),
+        ],
       ),
     );
   }

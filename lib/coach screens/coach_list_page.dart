@@ -50,7 +50,21 @@ class _CoachListPageState extends State<CoachListPage> {
 
               // Create Coach object from the data retrieved from Firestore
               Coach coach = Coach(
+                city: 'Tripoli',
+                country: 'Lebanon',
+                coachSocialMedia: [
+                  SocialMedia(
+                      url: 'https://www.instagram.com/',
+                      picture: 'assets/instagramlogo.jpg'),
+                  SocialMedia(
+                      url: 'https://www.facebook.com/',
+                      picture: 'assets/faceicon.png')
+                ],
                 id: coaches[index].id,
+                dateOfB: '13/5/1999',
+                email: 'Tarek@gmail.com',
+                gender: 'Male',
+                phoneNumber: '79136181',
                 name: name,
                 specialization: specialization,
                 speciality: speciality,
@@ -68,7 +82,20 @@ class _CoachListPageState extends State<CoachListPage> {
                   // You can use Navigator.push() to navigate to the desired page
                   Navigator.pushNamed(context, '/coach_profile_screen',
                       arguments: Coach(
+                        city: 'Tripoli',
+                        country: 'Lebanon',
+                        coachSocialMedia: [
+                          SocialMedia(
+                              url: 'https://www.instagram.com/', picture: ''),
+                          SocialMedia(
+                              url: 'https://www.facebook.com/',
+                              picture: 'assets/faceicon.png')
+                        ],
                         id: coaches[index].id,
+                        dateOfB: '13/5/1999',
+                        email: 'Tarek@gmail.com',
+                        gender: 'Male',
+                        phoneNumber: '79136181',
                         name: name,
                         specialization: specialization,
                         speciality: speciality,
