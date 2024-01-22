@@ -1,17 +1,18 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:physical_fitness_planner/coach%20screens/coach_auth.dart';
-import 'package:physical_fitness_planner/coach%20screens/coach_home_Screen.dart';
-import 'package:physical_fitness_planner/coach%20screens/coach_list_page.dart';
-import 'package:physical_fitness_planner/coach%20screens/coach_profile_screen.dart';
-import 'package:physical_fitness_planner/coach%20screens/coach_register.dart';
-import 'package:physical_fitness_planner/coach%20screens/diet_and_workout_screen.dart';
-import 'package:physical_fitness_planner/coach%20screens/workout_plan_selection_screen.dart';
-import 'package:physical_fitness_planner/customer%20screens/customer_auth.dart';
-import 'package:physical_fitness_planner/customer%20screens/customer_home%20_Screen.dart';
-import 'package:physical_fitness_planner/customer%20screens/customer_register.dart';
+import 'package:physical_fitness_planner/screens/coach%20screens/coach_auth.dart';
+import 'package:physical_fitness_planner/screens/coach%20screens/coach_home_Screen.dart';
+import 'package:physical_fitness_planner/screens/coach%20screens/coach_list_page.dart';
+import 'package:physical_fitness_planner/screens/coach%20screens/coach_profile_screen.dart';
+import 'package:physical_fitness_planner/screens/coach%20screens/coach_register.dart';
+import 'package:physical_fitness_planner/screens/coach%20screens/diet_and_workout_screen.dart';
+import 'package:physical_fitness_planner/screens/coach%20screens/workout_plan_selection_screen.dart';
+import 'package:physical_fitness_planner/screens/customer%20screens/customer_auth.dart';
+import 'package:physical_fitness_planner/screens/customer%20screens/customer_home%20_Screen.dart';
+import 'package:physical_fitness_planner/screens/customer%20screens/customer_register.dart';
 import 'package:physical_fitness_planner/data/request_page.dart';
 import 'package:physical_fitness_planner/screens/WelcomeScreen.dart';
 import 'package:physical_fitness_planner/screens/onboarding_screen.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       theme: ThemeData(
         appBarTheme: AppBarTheme(
             centerTitle: true,

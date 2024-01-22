@@ -26,9 +26,9 @@ class ViewWorkoutPlansPage extends StatelessWidget {
             return const Center(child: CircularProgressIndicator());
           }
 
-          final customerData = snapshot.data!;
+          final customerData = snapshot.data;
 
-          final workoutPlans = customerData['workoutPlan'] as List<dynamic>;
+          final workoutPlans = customerData!['workoutPlan'] as List<dynamic>;
 
           if (workoutPlans.isEmpty) {
             return const Center(child: Text('No workout plans available.'));

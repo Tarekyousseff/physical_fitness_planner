@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:physical_fitness_planner/coach%20screens/coach_profile_page.dart';
+import 'package:physical_fitness_planner/screens/coach%20screens/coach_profile_page.dart';
 import 'package:physical_fitness_planner/screens/drawer.dart';
 
 class CoachHomeScreen extends StatefulWidget {

@@ -1,28 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:physical_fitness_planner/screens/customer%20screens/customer_login.dart';
 
-const String coachesCollection = 'coaches';
+import '../../constants.dart';
 
-class CoachAuthScreen extends StatefulWidget {
+class CustomerRegistrationScreen extends StatefulWidget {
   final void Function()? onTap;
-  const CoachAuthScreen({Key? key, this.onTap}) : super(key: key);
+  const CustomerRegistrationScreen({super.key, this.onTap});
 
   @override
-  _CoachAuthScreenState createState() => _CoachAuthScreenState();
+  _CustomerRegistrationScreenState createState() =>
+      _CustomerRegistrationScreenState();
 }
 
-class _CoachAuthScreenState extends State<CoachAuthScreen> {
+class _CustomerRegistrationScreenState
+    extends State<CustomerRegistrationScreen> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _ConfirmPassword = TextEditingController();
-  final TextEditingController _photoUrlController = TextEditingController();
+  final TextEditingController _confirmPassword = TextEditingController();
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  Future<void> _registerCoach() async {
-    final String confirmPassword = _ConfirmPassword.text;
+  Future<void> _registerCustomer() async {
+    final String confirmPassword = _confirmPassword.text;
     final String password = _passwordController.text;
 
     if (_formKey.currentState!.validate() && password == confirmPassword) {
@@ -32,9 +34,6 @@ class _CoachAuthScreenState extends State<CoachAuthScreen> {
 
         final String name = _nameController.text;
 
-        final String photoUrl = _photoUrlController.text;
-
-        // Create the user in Firebase Auth
         UserCredential userCredential =
             await _auth.createUserWithEmailAndPassword(
           email: email,
@@ -42,31 +41,29 @@ class _CoachAuthScreenState extends State<CoachAuthScreen> {
         );
 
         if (userCredential.user != null) {
-          // Registration successful, save additional coach data in Firestore
+          // Registration successful, save additional customer data in Firestore
           await FirebaseFirestore.instance
-              .collection(coachesCollection)
+              .collection(customersCollection)
               .doc(userCredential.user!.uid)
               .set({
             'name': name,
-            'phone Number':'',
-            'specialization':'',
-            'speciality':'',
-            'role':'coach',
+            'phone Number': '',
 
-            // 'photoUrl': photoUrl,
-            // Add other coach-specific data here
+            'role': 'customer',
+
+            // Add other customer-specific data here
           });
 
-          // Navigate to the coach's home screen
-          Navigator.pushReplacementNamed(context, '/coach_home');
+          // Navigate to the customer's home screen
+          Navigator.pushReplacementNamed(context, '/customer_home');
         }
       } on FirebaseAuthException catch (e) {
-        print('Error registering coach: $e');
+        print('Error registering customer: $e');
         displayMessage(e.code);
         // Handle registration errors
       }
     } else {
-      displayMessage('Password Confirmation Error');
+      displayMessage('error Password');
     }
   }
 
@@ -75,12 +72,13 @@ class _CoachAuthScreenState extends State<CoachAuthScreen> {
         context: context,
         builder: (context) => AlertDialog(title: Text(message)));
   }
-  // ... existing code for the _signInCoach() method and the rest of the class
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Coach Registration')),
+      appBar: AppBar(
+        title: const Text('Customer Registration'),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -124,35 +122,32 @@ class _CoachAuthScreenState extends State<CoachAuthScreen> {
                     return null;
                   },
                 ),
-
                 TextFormField(
-                  controller: _ConfirmPassword,
+                  controller: _confirmPassword,
+                  obscureText: true,
                   decoration:
                       const InputDecoration(labelText: 'Confirm Password'),
                   validator: (value) {
                     if (value!.isEmpty) {
-                      return 'Please enter your birthday';
+                      return 'wrong password';
                     }
-                    // You can add additional birthday validation here if needed
+                    // You can add additional validation for full name here if needed
                     return null;
                   },
                 ),
-                // TextFormField(
-                //   controller: _photoUrlController,
-                //   decoration: const InputDecoration(labelText: 'Photo URL'),
-                //   onSaved: (value) {
-                //     _photoUrl = value!;
-                //   },
-                // ),
                 const SizedBox(height: 16.0),
                 ElevatedButton(
-                  onPressed: _registerCoach,
+                  onPressed: _registerCustomer,
                   child: const Text('Register'),
                 ),
                 const SizedBox(height: 10),
                 TextButton(
-                    onPressed: widget.onTap,
-                    child: const Text('Already have an account? Log in here.'))
+                  onPressed: () {
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (context) => const customerLoginScreen()));
+                  },
+                  child: const Text('Already have an account? Log in here.'),
+                ),
               ],
             ),
           ),

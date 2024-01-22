@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:physical_fitness_planner/adminScreens/admin_login.dart';
 import 'package:physical_fitness_planner/adminScreens/admin_register.dart';
-import 'package:physical_fitness_planner/coach%20screens/coach_login.dart';
-import 'package:physical_fitness_planner/customer%20screens/customer_login.dart';
+import 'package:physical_fitness_planner/screens/coach%20screens/coach_login.dart';
+import 'package:physical_fitness_planner/screens/coach%20screens/coach_login_or_register.dart';
+import 'package:physical_fitness_planner/screens/customer%20screens/customer_login.dart';
+import 'package:physical_fitness_planner/screens/welcome_screen.dart';
 
 class LandingScreen extends StatefulWidget {
   const LandingScreen({super.key});
@@ -16,7 +18,12 @@ class _LandingScreenState extends State<LandingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+      body: WelcomeView()
+    );
+  }
+}
+/*
+SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -37,7 +44,7 @@ class _LandingScreenState extends State<LandingScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Text('I am:'),
+                        const Text('I am:'),
                         DropdownButton<String>(
                           value: dropdownvalue,
                           icon: const Icon(Icons.person, color: Colors.red),
@@ -48,18 +55,17 @@ class _LandingScreenState extends State<LandingScreen> {
                           ),
                           items: const [
                             DropdownMenuItem<String>(
-                              child: Text('Coach'),
                               value: 'Coach',
+                              child: Text('Coach'),
                             ),
                             DropdownMenuItem<String>(
-                              child: Text('Customer'),
                               value: 'Customer',
+                              child: Text('Customer'),
                             ),
                           ],
                           onChanged: (value) {
                             setState(() {
                               dropdownvalue = value!;
-                              print(dropdownvalue);
                             });
                           },
                         ),
@@ -70,11 +76,11 @@ class _LandingScreenState extends State<LandingScreen> {
               ),
             ),
             if (dropdownvalue == 'Customer') ...[
-              Text('Welcome Back '),
-              customerLoginScreen()
+              const Text('Welcome Back '),
+              const customerLoginScreen()
             ] else ...[
-              Text('Welcome back Coach'),
-              const CoachLoginScreen(),
+              const Text('Welcome back Coach'),
+              const coachLoginOrRegister(),
             ],
             const SizedBox(height: 30),
             // ElevatedButton(
@@ -98,6 +104,4 @@ class _LandingScreenState extends State<LandingScreen> {
           ],
         ),
       ),
-    );
-  }
-}
+*/

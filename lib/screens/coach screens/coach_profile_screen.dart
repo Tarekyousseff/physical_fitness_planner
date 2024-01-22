@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:physical_fitness_planner/coach%20screens/Profile_coach.dart';
+import 'package:physical_fitness_planner/screens/coach%20screens/Profile_coach.dart';
 import 'package:physical_fitness_planner/data/chat_Screen.dart';
 import 'package:physical_fitness_planner/data/coash_customer.dart';
 import 'package:physical_fitness_planner/diet/fitness_program_request.dart';

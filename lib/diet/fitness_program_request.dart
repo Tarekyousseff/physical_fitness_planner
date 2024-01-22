@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:physical_fitness_planner/coach%20screens/coach_register.dart';
+import 'package:physical_fitness_planner/screens/coach%20screens/coach_register.dart';
 import 'package:physical_fitness_planner/data/coash_customer.dart';
 
 class FitnessProgramRequestScreen extends StatefulWidget {

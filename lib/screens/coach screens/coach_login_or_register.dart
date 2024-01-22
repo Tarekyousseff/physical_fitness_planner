@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:physical_fitness_planner/coach%20screens/coach_login.dart';
-import 'package:physical_fitness_planner/coach%20screens/coach_register.dart';
+import 'package:physical_fitness_planner/screens/coach%20screens/coach_login.dart';
+import 'package:physical_fitness_planner/screens/coach%20screens/coach_register.dart';
 
 class coachLoginOrRegister extends StatefulWidget {
   const coachLoginOrRegister({super.key});

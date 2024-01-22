@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:physical_fitness_planner/constants.dart';
-import 'package:physical_fitness_planner/customer%20screens/customer_register.dart';
+import 'package:physical_fitness_planner/screens/customer%20screens/customer_register.dart';
 
 class customerLoginScreen extends StatefulWidget {
   final void Function()? onTap;
@@ -81,7 +81,7 @@ class _CustomerLoginScreenState extends State<customerLoginScreen> {
           TextButton(
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
-                  builder: ((context) => CustomerRegistrationScreen())));
+                  builder: ((context) => const CustomerRegistrationScreen())));
             },
             child: const Text('Don\'t have an account? Sign up here.'),
           ),

@@ -25,6 +25,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     super.dispose();
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: HexColor('FFE5B4'),
@@ -49,7 +50,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       ),
                       Text(
                         contents[index].title,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Colors.red,
                             fontWeight: FontWeight.w700,
                             fontSize: 20),
@@ -58,7 +59,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
                         child: Text(
                           contents[index].discription,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w300,
                               fontSize: 14),
@@ -70,11 +71,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 ElevatedButton(
                     onPressed: () {
                       if (currentIndex == contents.length - 1) {
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: ((context) => LandingScreen())));
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(
+                            builder: ((context) => const LandingScreen())));
                       }
                       _controller.nextPage(
-                          duration: Duration(milliseconds: 200),
+                          duration: const Duration(milliseconds: 200),
                           curve: Curves.decelerate);
                     },
                     child: Text(currentIndex == contents.length - 1

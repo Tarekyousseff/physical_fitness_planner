@@ -2,8 +2,8 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:physical_fitness_planner/customer%20screens/customer_diet_view.dart';
-import 'package:physical_fitness_planner/customer%20screens/customer_workout_plan.dart';
+import 'package:physical_fitness_planner/screens/customer%20screens/customer_diet_view.dart';
+import 'package:physical_fitness_planner/screens/customer%20screens/customer_workout_plan.dart';
 import 'package:physical_fitness_planner/screens/drawer.dart';
 import 'package:physical_fitness_planner/screens/profile_page.dart';
 
