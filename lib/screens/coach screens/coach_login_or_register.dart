@@ -19,7 +19,7 @@ class _coachLoginOrRegisterState extends State<coachLoginOrRegister> {
 
   @override
   Widget build(BuildContext context) {
-    if (showloginPage) {
+    if (!showloginPage) {
       return CoachLoginScreen(onTap: togglePages);
     } else {
       return CoachAuthScreen(onTap: togglePages);

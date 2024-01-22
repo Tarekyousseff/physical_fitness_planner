@@ -61,7 +61,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           contents[index].discription,
                           style: const TextStyle(
                               color: Colors.black,
-                              fontWeight: FontWeight.w300,
+                              fontWeight: FontWeight.w400,
                               fontSize: 14),
                         ),
                       ),

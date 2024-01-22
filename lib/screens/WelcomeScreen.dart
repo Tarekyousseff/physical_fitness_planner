@@ -17,9 +17,7 @@ class _LandingScreenState extends State<LandingScreen> {
   String dropdownvalue = 'Customer';
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: WelcomeView()
-    );
+    return const Scaffold(body: WelcomeView());
   }
 }
 /*

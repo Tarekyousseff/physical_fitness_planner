@@ -25,7 +25,9 @@ class _WelcomeViewState extends State<WelcomeView>
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Image.asset('assets/PFP__1_-removebg-preview.png'),
+        Image.asset(
+          'assets/PFP__1_-removebg-preview.png',
+        ),
         const SizedBox(
           height: 50,
         ),
@@ -39,7 +41,7 @@ class _WelcomeViewState extends State<WelcomeView>
                   child: CustomWelcomeButton(
                       iconColor: Colors.blue,
                       onTap: () {
-                        Get.to(const CoachAuthScreen());
+                        Get.to(const coachLoginOrRegister());
                       },
                       labeColor: Colors.black,
                       buttonColor: Colors.red,
@@ -56,7 +58,7 @@ class _WelcomeViewState extends State<WelcomeView>
                   child: CustomWelcomeButton(
                     iconColor: Colors.red,
                     onTap: () {
-                      Get.to(const CustomerRegistrationScreen());
+                      Get.to(const loginOrRegister());
                     },
                     labeColor: Colors.white,
                     buttonColor: Colors.blueAccent,

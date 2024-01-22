@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:physical_fitness_planner/main.dart';
 import 'package:physical_fitness_planner/screens/customer%20screens/customer_login.dart';
 
 import '../../constants.dart';
@@ -56,6 +57,8 @@ class _CustomerRegistrationScreenState
 
           // Navigate to the customer's home screen
           Navigator.pushReplacementNamed(context, '/customer_home');
+          preferncesHelper.login();
+          preferncesHelper.customerLoggin();
         }
       } on FirebaseAuthException catch (e) {
         print('Error registering customer: $e');
@@ -142,10 +145,7 @@ class _CustomerRegistrationScreenState
                 ),
                 const SizedBox(height: 10),
                 TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pushReplacement(MaterialPageRoute(
-                        builder: (context) => const customerLoginScreen()));
-                  },
+                  onPressed: widget.onTap,
                   child: const Text('Already have an account? Log in here.'),
                 ),
               ],

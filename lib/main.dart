@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:physical_fitness_planner/hepler/prefrences_helper.dart';
 import 'package:physical_fitness_planner/screens/coach%20screens/coach_auth.dart';
 import 'package:physical_fitness_planner/screens/coach%20screens/coach_home_Screen.dart';
 import 'package:physical_fitness_planner/screens/coach%20screens/coach_list_page.dart';
@@ -16,11 +17,17 @@ import 'package:physical_fitness_planner/screens/customer%20screens/customer_reg
 import 'package:physical_fitness_planner/data/request_page.dart';
 import 'package:physical_fitness_planner/screens/WelcomeScreen.dart';
 import 'package:physical_fitness_planner/screens/onboarding_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+late final PreferncesHelper preferncesHelper;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  preferncesHelper = PreferncesHelper(prefs);
+  runApp(ChangeNotifierProvider(
+      create: (context) => PreferncesHelper(prefs), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -33,42 +40,45 @@ class MyApp extends StatelessWidget {
         appBarTheme: AppBarTheme(
             centerTitle: true,
             color: HexColor('FFE5B4'),
-            titleTextStyle: TextStyle(
+            titleTextStyle: const TextStyle(
                 color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500)),
-        textTheme: TextTheme(labelMedium: TextStyle(color: Colors.red)),
+        textTheme: const TextTheme(labelMedium: TextStyle(color: Colors.red)),
         colorSchemeSeed: Colors.red,
         scaffoldBackgroundColor: HexColor('FFE5B4'),
       ),
       title: "my app",
       debugShowCheckedModeBanner: false,
       home: AnimatedSplashScreen(
-        backgroundColor: const Color.fromARGB(20, 49, 48, 48),
-        splashIconSize: 200,
-        animationDuration: const Duration(seconds: 4),
-        splash: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              radius: 100,
-              backgroundColor: Colors.black,
-              child: Image(
-                  image: AssetImage(
-                'assets/PFP__1_-removebg-preview.png',
-              )),
-            ),
-            // SizedBox(
-            //   height: 10,
-            // ),
-            // Text(
-            //   'welcome',
-            //   style: TextStyle(
-            //       fontSize: 20, fontWeight: FontWeight.bold, color: Colors.red),
-            // ),
-          ],
-        ),
-        nextScreen: const OnBoardingScreen(),
-      ),
+          backgroundColor: const Color.fromARGB(20, 49, 48, 48),
+          splashIconSize: 200,
+          animationDuration: const Duration(seconds: 4),
+          splash: const Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                radius: 100,
+                backgroundColor: Colors.black,
+                child: Image(
+                    image: AssetImage(
+                  'assets/PFP__1_-removebg-preview.png',
+                )),
+              ),
+              // SizedBox(
+              //   height: 10,
+              // ),
+              // Text(
+              //   'welcome',
+              //   style: TextStyle(
+              //       fontSize: 20, fontWeight: FontWeight.bold, color: Colors.red),
+              // ),
+            ],
+          ),
+          nextScreen: preferncesHelper.isloggedIn()
+              ? preferncesHelper.userType() == 'customer'
+                  ? const CustomerHomeScreen()
+                  : const CoachHomeScreen()
+              : const OnBoardingScreen()),
       routes: {
         '/customer_register': (context) => const CustomerRegistrationScreen(),
 
