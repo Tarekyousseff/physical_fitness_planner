@@ -2,7 +2,8 @@
 
 
 ## Getting Started
-![Screenshot_2023-10-08-08-14-40](https://github.com/Tarekyousseff/physical_fitness_planner/assets/149389639/ec06ed26-0f6a-4653-ab92-e0f140b8ae0d)
+![Screenshot_2023-10-08-08-14-40](https://github.com/Tarekyousseff/physical_fitness_planner/assets/149389639/ec06ed26-0f6a-4653-ab92-e0f140b8ae0d)  
+
 ![Screenshot_2023-10-08-08-14-43 - Copy](https://github.com/Tarekyousseff/physical_fitness_planner/assets/149389639/e5c4cd93-422d-42f9-aa8e-1f9a7b0bdf5b)
 ![Screenshot_2023-10-08-08-14-43](https://github.com/Tarekyousseff/physical_fitness_planner/assets/149389639/b026cc6c-9a3a-4b22-acc2-a52915a8761a)
 ![Screenshot_2023-10-08-08-14-48 - Copy](https://github.com/Tarekyousseff/physical_fitness_planner/assets/149389639/e0a9a3a6-7705-4d00-89be-c1707e9f4d6a)
